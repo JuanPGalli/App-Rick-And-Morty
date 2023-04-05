@@ -1,31 +1,35 @@
 import "./App.css";
-import Card from "./components/Card.jsx";
 import Cards from "./components/Cards.jsx";
-import SearchBar from "./components/SearchBar.jsx";
-import characters, { Rick } from "./data.js";
-
-/* import React from "react";
-import ReactDOM from "react-dom"; */
+import Nav from "./components/Nav.jsx";
+import { useState } from "react";
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+
+  const onSearch = (character) => {
+    fetch(`https://rickandmortyapi.com/api/character/${character}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("¡No hay personajes con este ID!");
+        }
+      });
+  };
+
+  const onClose = (id) => {
+    setCharacters(characters.filter((character) => character.id !== id));
+  };
+
   return (
-    <div className="App">
-      <SearchBar onSearch={(characterID) => alert(characterID)} />
-      <Cards characters={characters} />
-      <Card
-        id={Rick.id}
-        name={Rick.name}
-        status={Rick.status}
-        species={Rick.species}
-        gender={Rick.gender}
-        origin={Rick.origin.name}
-        image={Rick.image}
-        onClose={() => alert("Emulamos que se cierra la card")}
-      />
+    <div className="App" style={{ padding: "25px" }}>
+      <Nav onSearch={onSearch} />
+      <div>
+        <Cards onClose={onClose} characters={characters} />
+      </div>
     </div>
   );
 }
-
-/* ReactDOM.render(<App />, document.getElementById("root")); */
 
 export default App;

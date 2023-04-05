@@ -1,18 +1,16 @@
 import Card from "./Card";
 
-function Cards({ characters }) {
+function Cards({ characters, onClose }) {
   return (
     <div>
-      {characters.map((e) => (
+      {characters.map(({ id, name, species, gender, image }) => (
         <Card
-          key={e.id}
-          name={e.name}
-          status={e.status}
-          species={e.species}
-          gender={e.gender}
-          origin={e.origin.name}
-          image={e.image}
-          onClose={() => window.alert("Emulamos que se cierra la card")}
+          key={id}
+          name={name}
+          species={species}
+          gender={gender}
+          image={image}
+          onClose={() => onClose(id)}
         />
       ))}
     </div>
