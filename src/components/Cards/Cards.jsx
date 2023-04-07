@@ -1,4 +1,4 @@
-import Card from "./Card";
+import Card from "../Card/Card.jsx";
 
 function Cards({ characters, onClose }) {
   return (
