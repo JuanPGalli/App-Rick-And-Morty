@@ -1,0 +1,9 @@
+/* Estos son los estilos aplicados por la profe para Favorites copy/paste de Card */
+
+.card:hover {
+  color: rgb(0, 0, 0);
+  background-color: rgba(81, 255, 110, 0.461);
+  box-shadow: 0 0 1rem rgba(81, 255, 110, 0.461);
+}
+
+/* Copiar todo Code Review II Clase 12 React Redux Cohorte 34a minuto 35:59 */

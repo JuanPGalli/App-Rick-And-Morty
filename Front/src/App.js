@@ -6,6 +6,7 @@ import Detail from "./components/Detail/Detail.jsx";
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Form from "./components/Form/Form.jsx";
+import Favorites from "./components/Favorites/Favorites";
 
 function App() {
   const location = useLocation(); //devuelve objeto con un pathname p/ renderizado condicional.
@@ -24,6 +25,7 @@ function App() {
 
   useEffect(() => {
     !access && navigate("/"); //Access es false, mientras eso se cumpla navega a "/"
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [access]); // monitorea siempre el cambio de estado en access
 
   const onSearch = (character) => {
@@ -56,6 +58,7 @@ function App() {
         ></Route>
         <Route path="/about" element={<About />} />
         <Route path="/detail/:detailId" element={<Detail />} />
+        <Route path="/favorites" element={<Favorites />} />
       </Routes>
     </div>
   );

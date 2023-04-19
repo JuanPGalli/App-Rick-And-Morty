@@ -2,8 +2,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 
-const URL_BASE = "https://be-a-rym.up.railway.app/api/character/";
-const API_KEY = "4b7c423344ca.27db335720a8a43c1586";
+// const URL_BASE = "https://be-a-rym.up.railway.app/api/character/";
+// const API_KEY = "4b7c423344ca.27db335720a8a43c1586";
 //const url_anterior = `https://rickandmortyapi.com/api/character/${detailId}`;
 
 const Detail = () => {
