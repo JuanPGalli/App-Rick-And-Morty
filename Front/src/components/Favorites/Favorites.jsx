@@ -30,10 +30,10 @@ const Favorites = () => {
         <option value="unknown">unknown</option>
         <option value="allCharacters">All Characters</option>
       </select>
-      <select value="D">Descendente</select>
-      {myFavorites.map((character) => {
+      {/* <select value="D">Descendente</select> No iba?? */}
+      {myFavorites.map((character, index) => {
         return (
-          <div key={character.id}>
+          <div key={index}>
             <Link to={`/detail/${character.id}`}>
               <h2>{character.name}</h2>
             </Link>

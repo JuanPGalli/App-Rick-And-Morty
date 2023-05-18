@@ -3,9 +3,9 @@ import Card from "../Card/Card.jsx";
 function Cards({ characters, onClose }) {
   return (
     <div>
-      {characters.map(({ id, name, species, gender, image }) => (
+      {characters.map(({ id, name, species, gender, image }, index) => (
         <Card
-          key={id}
+          key={index}
           name={name}
           species={species}
           gender={gender}
